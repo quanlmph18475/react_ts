@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "name": "product 41",
+      "price": 6586,
+      "description": "abc",
+      "id": 2,
+      "image": "https://media.hcdn.vn/catalog/product/f/a/facebook-dynamic-422208913-1696227707_img_300x300_b798dd_fit_center.png"
+    },
+    {
+      "name": "Product 3 ",
+      "price": 2006,
+      "description": "abc",
+      "id": 3,
+      "image": "https://media.hcdn.vn/catalog/product/f/a/facebook-dynamic-422204902-1696229924_img_300x300_b798dd_fit_center.png"
+    },
+    {
+      "name": "Product 3 update",
+      "price": 587,
+      "description": "abc",
+      "id": 4,
+      "image": "https://media.hcdn.vn/catalog/product/f/a/facebook-dynamic-422204904-1696230470_img_300x300_b798dd_fit_center.png"
+    },
+    {
+      "name": "product 43",
+      "price": 321,
+      "image": "https://media.hcdn.vn/catalog/product/f/a/facebook-dynamic-422209314-1696227642.png",
+      "id": 14
+    }
+  ],
+  "users": [
+    {
+      "email": "lemanhquan19122002@gmail.com",
+      "password": "$2a$10$awldkBZDP.qVouplYbQr5ug.rQnRFtX5pOPG9TlnxbmWwWt4HyE2e",
+      "id": 1
+    },
+    {
+      "email": "quanlmph18475@fpt.edu.vn",
+      "password": "$2a$10$xQTd0/wkXReyNBCZGy6FTeDxvy1OQMMXryOE0HTwoK0OVIPPoz09K",
+      "id": 2
+    },
+    {
+      "email": "ads@gmail.com",
+      "password": "$2a$10$Tk2jfscJtizXxiGL88kqPOCAPjaXOph9u4dCi2qBGDJU1d/T4dxWC",
+      "id": 3
+    }
+  ]
+}
