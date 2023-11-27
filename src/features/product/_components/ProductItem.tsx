@@ -1,10 +1,10 @@
 import { useProductMutation } from '@/hooks/useProductMutation'
-import { IProduct } from '@/interface/Product' 
+import { IProduct } from '@/common/Product' 
 import { useState } from 'react'
 import Joi from 'joi'
-import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
-import { Input } from './ui/input'
-import { useToast } from './ui/use-toast'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../../../components/ui/form'
+import { Input } from '../../../components/ui/input'
+import { useToast } from '../../../components/ui/use-toast'
 
 type ProductItemProps = {
     product: IProduct
@@ -30,7 +30,6 @@ const ProductItem = ({ product }: ProductItemProps) => {
             setProductEditId(null)
             toast({
                 variant:'destructive',
-                title:'Chúc mừng bạn',
                 description:'Bạn đã cập nhật thành công'
             })
         }

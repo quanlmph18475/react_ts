@@ -1,8 +1,8 @@
-import { IProduct } from "@/interface/Product";
+import { IProduct } from "@/common/Product";
 import { formatPrice } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
+import { Button } from "../../../components/ui/button";
 
 
 
@@ -43,7 +43,7 @@ export const getColumns = (onRemove: (product: IProduct) => void ): ColumnDef<IP
             const product = row?.original
             return (
                 <>
-                    <Link to={`/products/${row?.original.id}`}>Chỉnh sửa</Link>
+                    <Link to={`/admin/products/${row?.original.id}`}>Chỉnh sửa</Link>
                     <Button onClick={() => {
                         window.confirm('Bạn có muốn xóa không?') && onRemove(product)
                     }}>Xóa</Button>

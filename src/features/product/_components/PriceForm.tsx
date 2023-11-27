@@ -1,12 +1,12 @@
-import { IProduct } from '@/interface/Product'
-import React, { useEffect, useState } from 'react'
-import { Button } from '../ui/button'
+import { IProduct } from '@/common/Product'
+import { useEffect, useState } from 'react'
+import { Button } from '../../../components/ui/button'
 import { Pencil } from 'lucide-react'
 import { SubmitHandler } from 'react-hook-form'
-import { Form, FormControl, FormField, FormItem } from '../ui/form'
-import { Input } from '../ui/input'
+import { Form, FormControl, FormField, FormItem } from '../../../components/ui/form'
+import { Input } from '../../../components/ui/input'
 import { useProductMutation } from '@/hooks/useProductMutation'
-import { useToast } from '../ui/use-toast'
+import { useToast } from '../../../components/ui/use-toast'
 
 type PriceFormProps = {
     data: IProduct
@@ -25,7 +25,6 @@ const PriceForm = ({ data }: PriceFormProps) => {
             setProductEditStatus(false)
             toast({
                 variant: 'default',
-                title: 'Chúc mừng b!!',
                 description: 'Cập nhật giá thành công'
             })
         }

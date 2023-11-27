@@ -1,14 +1,11 @@
-import React, { useState,useContext } from 'react'
-import { IProduct } from '../interface/Product'
-import { ProductContext } from '../context/product'
 import { useParams } from 'react-router-dom'
-import NameForm from '@/components/Product/NameForm'
-import PriceForm from '@/components/Product/PriceForm'
+import NameForm from '@/features/product/_components/NameForm'
+import PriceForm from '@/features/product/_components/PriceForm'
 import { useProductQuery } from '@/hooks/useProductQuery'
-import ImageForm from './Product/ImageForm'
+import ImageForm from './ImageForm'
 
-type Props = {}
-const Edit = (props: Props) =>{
+
+const Edit = () =>{
     const { id } = useParams()
     const { data } = useProductQuery(id)
     return(

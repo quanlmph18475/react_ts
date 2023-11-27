@@ -1,12 +1,10 @@
-import { IProduct } from '@/interface/Product' 
+import { IProduct } from '@/common/Product' 
 import { DataTable } from './DataTable'
 import { useProductQuery } from '@/hooks/useProductQuery'
 import { useProductMutation } from '@/hooks/useProductMutation'
-import { useToast } from './ui/use-toast'
-import { getColumns } from './Product/Columns'
-import { Skeleton } from './ui/skeleton'
-import { Button } from './ui/button'
-import { Link } from 'react-router-dom'
+import { useToast } from '../../../components/ui/use-toast'
+import { getColumns } from './Columns'
+import { Skeleton } from '../../../components/ui/skeleton'
 
 
 const List = () => {

@@ -1,21 +1,21 @@
 import { useProductMutation } from '@/hooks/useProductMutation'
-import { IProduct } from '@/interface/Product'
-import React, { useEffect, useState } from 'react'
-import { Button } from '../ui/button'
+import { IProduct } from '@/common/Product'
+import { useEffect, useState } from 'react'
+import { Button } from '../../../components/ui/button'
 import { Pencil } from 'lucide-react'
-import { Form, FormControl, FormField, FormItem } from '../ui/form'
-import { Input } from '../ui/input'
-import { toast, useToast } from '../ui/use-toast'
+import { Form, FormControl, FormField, FormItem } from '../../../components/ui/form'
+import { Input } from '../../../components/ui/input'
+import { useToast } from '../../../components/ui/use-toast'
 import { SubmitHandler } from 'react-hook-form'
 
 type NameFormProps = {
   data: IProduct
 }
 type FormControlType = {
-  name: string
+  image: string
 }
 
-const NameForm = ({data}: NameFormProps) => {
+const ImageForm = ({data}: NameFormProps) => {
   const { toast }= useToast()
   const [productEditStatus, setProductEditStatus] = useState(false)
   const { form, onSubmit } = useProductMutation({
@@ -24,8 +24,7 @@ const NameForm = ({data}: NameFormProps) => {
       setProductEditStatus(false)
       toast({
         variant: 'default',
-        title: 'Chúc mừng bạn',
-        description: 'Cập nhật tiêu đề thành công'
+        description: 'Cập nhật ảnh thành công'
       })
     }
   })
@@ -44,7 +43,7 @@ const NameForm = ({data}: NameFormProps) => {
    return (
     <div className='mt-4 border bg-slate-100 rounded-md p-4'>
         <div className='font-medium flex items-center justify-between'>
-            Tên sản phẩm
+            Ảnh sản phẩm
           <Button variant='ghost' onClick={() => setProductEditStatus(!productEditStatus)}>
               {productEditStatus ? (
                 <>Hủy</>
@@ -56,17 +55,17 @@ const NameForm = ({data}: NameFormProps) => {
               )}
           </Button>
         </div>
-        {!productEditStatus && <p className='text-sm mt-2'>{data?.name}</p>}
+        {!productEditStatus && <p className='text-sm mt-2'>{data?.image}</p>}
         {productEditStatus && (
           <Form {...form}>
               <form onSubmit={form.handleSubmit(onHandleSubmit)} className='flex flex-col gap-y-6'>
                   <FormField
                   control={form.control}
-                  name='name'
+                  name='image'
                   render={({ field }) =>(
                     <FormItem>
                       <FormControl>
-                        <Input {...field} placeholder='Nhập tên sản phẩm'/>
+                        <Input {...field} placeholder='Ảnh sản phẩm'/>
                       </FormControl>
                     </FormItem>
                   )}
@@ -81,4 +80,4 @@ const NameForm = ({data}: NameFormProps) => {
   )
 }
 
-export default NameForm
+export default ImageForm

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ProductContext } from '../context/product'
+import { ProductContext } from '../../../store/product'
 
 
 const Signup = () => {
