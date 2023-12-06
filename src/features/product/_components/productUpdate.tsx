@@ -3,6 +3,7 @@ import NameForm from '@/features/product/_components/NameForm'
 import PriceForm from '@/features/product/_components/PriceForm'
 import { useProductQuery } from '@/hooks/useProductQuery'
 import ImageForm from './ImageForm'
+import DescriptionForm from './DescriptionForm'
 
 
 const Edit = () =>{
@@ -13,6 +14,7 @@ const Edit = () =>{
                 <NameForm data={data}/>
                 <ImageForm data={data}/>
                 <PriceForm data={data}/>
+                <DescriptionForm data={data}/>
           </div>
     )
 }

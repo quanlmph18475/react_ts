@@ -59,6 +59,18 @@ const Add = () =>{
                             </FormItem>
                         )}
                     ></FormField>
+                    <FormField
+                        control={form.control}
+                        name='description'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className='font-bold'>Mô tả</FormLabel>
+                                <FormControl>
+                                    <Input placeholder='Mô tả sản phẩm' {...field} />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    ></FormField>
                     <Button type='submit'>Thêm</Button>
                 </form>
             </Form>

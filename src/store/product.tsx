@@ -1,62 +1,52 @@
-import React, { useReducer } from 'react'
+import { createContext, useReducer } from 'react'
+import { IProduct } from '../common/Product'
 import { produce } from 'immer'
-
-export const ProductContext  = React.createContext({} as any)
-
+export const ProductContext = createContext([] as any)
+const initialState = {
+    products: [],
+    product: {}
+}
 const reducer = (state: any, action: any) => {
     switch (action.type) {
-        case 'GET_PRODUCT':
-            const id = action.payload
-            state.product = state.products.find((product: any) => product.id === id)
-            return 
-        case 'GET_USER':
-            const users = action.payload
-            state.user = state.users.find((user: any) => user.users === users)
-            return 
-        case 'FETCH_PRODUCTS':
-                state.products = action.payload
-                return 
-        case 'FETCH_USERS':
-                state.users = action.payload
-        return       
+        case 'GET_PRODUCTS':
+            state.products = action.payload
+            return
         case 'ADD_PRODUCT':
             state.products.push(action.payload)
-        return       
-        case 'EDIT_PRODUCT':
-            const newProduct = action.payload 
-            state.products = state.products.map((product: any) => (product.id === newProduct.id ? newProduct: product))
-            return 
-        case 'DELETE_PRODUCTS':
-            // state.products.delete(action.payload)
-            const ids = action.payload
-            state.products = state.products.filter((product: any) => product.ids !== ids)
-            return 
-        case 'SIGNUP':
-            state.users.push(action.payload)
             return
-        case 'SIGNIN':
-            state.users = action.payload
+        case 'GET_PRODUCT':
+            const id = action.payload
+            state.product = state.products.find((product: IProduct) => product.id === id)
             return
-                
+        case 'UPDATE_PRODUCT':
+            const newProduct = action.payload
+            state.products = state.products.map((product: IProduct) =>
+                product.id === newProduct.id ? newProduct : product
+            )
+            return
+        case 'DELETE_PRODUCT':
+            const productId = action.payload
+            const confirm = window.confirm('Bạn có chắc muốn xóa sản phẩm này không?')
+            if (!confirm) return state
+            state.products = state.products.filter((product: IProduct) => product.id !== productId)
+            return
         default:
-                return state
+            return state
     }
 }
-
-const ProductContextProvider = ({ children }: {children: React.ReactNode}) =>{
-    const [state, dispatch] = useReducer(produce(reducer), {
-        products: [],
-        product: {},
-        users: [],
-        user: {},
-        isLoading: false,
-        error: ''
-    })
+const ProductContextProvider = ({ children }: any) => {
+    const [state, dispatch] = useReducer(produce(reducer), initialState)
     return (
         <>
-            <ProductContext.Provider value={{ state, dispatch}}>{ children }</ProductContext.Provider>
+            <ProductContext.Provider
+                value={{
+                    state,
+                    dispatch
+                }}
+            >
+                {children}
+            </ProductContext.Provider>
         </>
     )
 }
-
 export default ProductContextProvider

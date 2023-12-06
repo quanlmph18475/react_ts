@@ -1,5 +1,4 @@
 import { addProduct, deleteProduct, updateProduct } from '@/services/product'
-import { useToast } from '@/components/ui/use-toast'
 import { IProduct } from '@/common/Product'
 import { joiResolver } from '@hookform/resolvers/joi'
 import Joi from 'joi'
@@ -10,12 +9,14 @@ type formControlDataType = {
     name: string
     image: string
     price: number
+    description: string
 }
 // Định validate form sử dụng joi
 const formSchema = Joi.object({
-    name: Joi.string().min(2).max(50),
+    name: Joi.string().min(2).max(90),
     image: Joi.string(),
-    price: Joi.number()
+    price: Joi.number(),
+    description: Joi.string()
 })
 type useProductMutationProps = {
     action: 'ADD' | 'EDIT' | 'DELETE' 
@@ -24,7 +25,7 @@ type useProductMutationProps = {
 }
 export const useProductMutation = ({ 
     action,
-    defaultValues = { name: '', price: 0, image: '' },
+    defaultValues = { name: '', price: 0, image: '',description:'' },
     onSuccess }: useProductMutationProps) => {
         const queryClient = useQueryClient()
     const { mutate, ...rest } = useMutation({

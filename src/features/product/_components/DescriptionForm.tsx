@@ -12,10 +12,10 @@ type NameFormProps = {
   data: IProduct
 }
 type FormControlType = {
-  name: string
+  description: string
 }
 
-const NameForm = ({data}: NameFormProps) => {
+const DescriptionForm = ({data}: NameFormProps) => {
   const { toast }= useToast()
   const [productEditStatus, setProductEditStatus] = useState(false)
   const { form, onSubmit } = useProductMutation({
@@ -24,7 +24,7 @@ const NameForm = ({data}: NameFormProps) => {
       setProductEditStatus(false)
       toast({
         variant: 'default',
-        description: 'Cập nhật tiêu đề thành công'
+        description: 'Cập nhật thành công'
       })
     }
   })
@@ -44,7 +44,7 @@ const NameForm = ({data}: NameFormProps) => {
    return (
     <div className='mt-4 border bg-slate-100 rounded-md p-4'>
         <div className='font-medium flex items-center justify-between'>
-            Tên sản phẩm
+            Mô tả sản phẩm
           <Button variant='ghost' onClick={() => setProductEditStatus(!productEditStatus)}>
               {productEditStatus ? (
                 <>Hủy</>
@@ -56,17 +56,17 @@ const NameForm = ({data}: NameFormProps) => {
               )}
           </Button>
         </div>
-        {!productEditStatus && <p className='text-sm mt-2'>{data?.name}</p>}
+        {!productEditStatus && <p className='text-sm mt-2'>{data?.description}</p>}
         {productEditStatus && (
           <Form {...form}>
               <form onSubmit={form.handleSubmit(onHandleSubmit)} className='flex flex-col gap-y-6'>
                   <FormField
                   control={form.control}
-                  name='name'
+                  name='description'
                   render={({ field }) =>(
                     <FormItem>
                       <FormControl>
-                        <Input {...field} placeholder='Nhập tên sản phẩm'/>
+                        <Input {...field} placeholder='Nhập mô tả sản phẩm'/>
                       </FormControl>
                     </FormItem>
                   )}
@@ -81,4 +81,4 @@ const NameForm = ({data}: NameFormProps) => {
   )
 }
 
-export default NameForm
+export default DescriptionForm

@@ -1,27 +1,20 @@
+import Banner from '@/features/Banner'
+import Footer from '@/features/Footer'
+import Header_base from '@/features/Header_base'
+import Menubase from '@/features/Menubase'
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-
-
 const BaseLayout = () => {
+  
   return (
     <div>
-        <header>
-            <div className="topnav">
-           <Link className="active" to='/'>
-             Trang chủ
-           </Link>
-           <Link to='products'>Sản phẩm</Link>
-           <Link to='/#'>Tin tức</Link>
-           <Link to='Users'>Contact Us</Link>
-         </div>
-        </header>
+          <Header_base/>
+          <Menubase/>
         <main>
             <Outlet/>
         </main>
-        <footer>
-            Footer
-        </footer>
+        <Footer/>
     </div>
   )
 }

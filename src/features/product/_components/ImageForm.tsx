@@ -33,7 +33,8 @@ const ImageForm = ({data}: NameFormProps) => {
       form.reset({
         name: data.name || '',
         image: data.image || '',
-        price: data.price || 0
+        price: data.price || 0,
+        description: data.description || ''
       })
     }
   }, [data, form])
